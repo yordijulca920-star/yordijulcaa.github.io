@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ESTILOS GENERALES */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a192f, #112d4e, #1a4b8c);
+            color: #fff9f9;
+
+        }
+
+        /* HEADER */
+
+        header {
+            background: #0a192f;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 10%;
+        }
+        /*barra de navegacion*/
+        .barra-de-navegacion{
+            position: relative;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 60px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            border: 0.5px solid #ccc;
+        }
+        /* LOGO IMAGEN*/
+        .logo img {
+            width: 100px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Ocultar checkbox */
+        #menu {
+            display: none;
+        }
+
+        /* Icono hamburguesa */
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Menú normal */
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        /* SECCION PRINCIPAL */
+
+        .Seccion-principal {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, .7),
+                    rgba(0, 0, 0, .7)),
+                url(img/fondo-principal.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .Seccion-principal h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .Seccion-principal p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            background: #00d4ff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+        }
+
+        .boton:hover {
+            background: #0099cc;
+        }
+
+        /* SERVICIOS */
+
+        section {
+            padding: 80px 10%;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 35px;
+            color: #0099cc;
+        }
+
+        .contenedor-tarjetas {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .servicio-img {
+            width: 50px;
+            /* Bajale el tamaño */
+            height: 50px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 10px;
+            /* Centrada */
+        }
+
+        .tarjeta {
+            background: #1E293B;
+            border: 1px solid #334155;
+            width: 300px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+            text-align: center;
+        }
+
+        .tarjeta h3 {
+            margin-bottom: 15px;
+        }
+
+        .tarjeta p {
+            margin-bottom: 20px;
+        }
+
+        .tarjeta-boton {
+            background: #38BDF8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tarjeta button:hover {
+            background: #0099cc;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* NOSOTROS */
+
+        .nosotros {
+            background: #1a4b8c;
+            text-align: center;
+        }
+
+        .nosotros p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* CONTACTO */
+
+        .contacto-box {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contacto-box input,
+        .contacto-box textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contacto-box textarea {
+            height: 150px;
+        }
+
+        .contacto-box button {
+            background: #00d4ff;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .correo {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .whatsapp-contacto {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+        }
+
+        .whatsapp-contacto h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-contacto p {
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1ebe5d;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0a192f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /*header y footer quietos*/
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        body {
+            padding-top: 80px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        body {
+            padding-bottom: 70px;
+        }
+
+        /*menu logotipos*/
+        .redes {
+            margin-top: 15px;
+        }
+
+        .redes a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .redes a:hover {
+            color: #00bfff;
+            transform: scale(1.2);
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #0a0f2c;
+            color: white;
+        }
+
+        .btn-arriba {
+            position: fixed;
+            right: 20px;
+            bottom: 90px;
+            background: #00d4ff;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .beneficios {
+            text-align: center;
+        }
+
+        .beneficios .tarjeta {
+            background: #1E293B;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .Seccion-principal h1 {
+                font-size: 35px;
+            }
+
+            .Seccion-principal p {
+                font-size: 16px;
+            }
+        }
+
+
+        /* COMPUTADORA */
+        .tarjetas {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* TABLET */
+        @media(max-width:992px) {
+            .tarjetas {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tarjeta {
+                width: 45%;
+            }
+        }
+
+        /* CELULAR */
+        @media(max-width:768px) {
+
+            header {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .tarjetas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tarjeta {
+                width: 90%;
+            }
+        }
+
+        /*VISTA MOVIL*/
+        @media(max-width:768px) {
+            .fila {
+                flex-direction: column;
+            }
+
+            .tarjeta {
+                width: 100%;
+                background-color: #0099cc;
+            }
+        }
+
+        /* Responsive */
+        @media(max-width:992px) {
+
+            .menu-icon {
+                display: block;
+
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                background: #0a0f2c;
+                padding: 30px 0;
+            }
+
+            /* Mostrar menú al marcar checkbox */
+            #menu:checked~nav {
+                display: block;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <div class="logo">
+            <img src="img/logo-3.png" alt="Logo AI Future">
+        </div>
+        <input type="checkbox" id="menu">
+        <label for="menu" class="menu-icon">☰</label>
+
+        <nav class="barra-de-navegacion">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <div class="indicator"></div>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="inicio" class="Seccion-principal">
+        <h1>Inteligencia Artificial para el Futuro</h1>
+        <p>Transformamos ideas en soluciones inteligentes mediante IA avanzada.</p>
+        <a href="#servicios" class="boton">Ver Más</a>
+    </section>
+
+
+    <section id="servicios">
+        <h2>¿COMO CAMBIARA LA IA NUESTRO FUTURO?</h2>
+
+        <div class="contenedor-tarjetas">
+
+            <div class="tarjeta">
+                <img src="img/fondo-001.1.png" alt="Robots Inteligentes">
+                <h3>🤖 Robots Inteligentes</h3>
+                <p>Los robots equipados con inteligencia artificial podrán realizar tareas complejas en industrias,
+                    hogares y
+                    servicios.</p>
+                <a href="robot-inteligente.html" class="boton">Ver más</a>
+            </div>
+
+            <div class="tarjeta">
+                <img src="img/fondo-002.2.png" alt="Medicina Avanzada">
+                <h3>🏥 Medicina Avanzada</h3>
+                <p>La IA ayudará a detectar enfermedades con mayor precisión y permitirá tratamientos personalizados.
+                </p>
+                <a href="medicina-avanzada.html" class="boton">Ver más</a>
+            </div>
+
+            <div class="tarjeta">
+                <img src="img/fondo-003.3.png" alt="Transporte Autónomo">
+                <h3>🚗 Transporte Autónomo</h3>
+                <p>Vehículos inteligentes podrán desplazarse de forma segura, reduciendo accidentes y mejorando la
+                    movilidad.</p>
+                <a href="transporte-autonomo.html" class="boton">Ver más</a>
+            </div>
+
+            <div class="tarjeta">
+                <img src="img/fondo-004.2.png" alt="Educación Personalizada">
+                <h3>🎓 Educación Personalizada</h3>
+                <p>Los estudiantes recibirán contenido adaptado a sus necesidades y ritmo de aprendizaje.</p>
+                <a href="educacion-personalizada.html" class="boton">Ver más</a>
+            </div>
+
+            <div class="tarjeta">
+                <img src="img/fondo-005.2.png" alt="Trabajo Inteligente">
+                <h3>💼 Trabajo Inteligente</h3>
+                <p>La automatización permitirá realizar tareas repetitivas con mayor eficiencia y productividad.</p>
+                <a href="trabajo-inteligente.html" class="boton">Ver más</a>
+            </div>
+
+            <div class="tarjeta">
+                <img src="img/fondo-006.png" alt="Seguridad Digital">
+                <h3>🛡️ Seguridad Digital</h3>
+                <p>Los sistemas de IA detectarán amenazas informáticas y protegerán datos en tiempo real.</p>
+                <a href="seguridad-digital.html" class="boton">Ver más</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="nosotros" class="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>
+            Somos una empresa especializada en Inteligencia Artificial,
+            dedicada a crear soluciones innovadoras para empresas,
+            instituciones educativas y organizaciones modernas.
+            Nuestro objetivo es impulsar el futuro mediante tecnologías
+            inteligentes que mejoren la productividad, la educación,
+            la salud y la seguridad digital.
+        </p>
+    </section>
+    <section class="beneficios">
+        <h2>¿Por qué elegir la Inteligencia Artificial?</h2>
+
+        <div class="contenedor-tarjetas">
+
+            <div class="tarjeta">
+                <h3>⚡ Mayor Productividad</h3>
+                <p>Automatiza tareas repetitivas y ahorra tiempo.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>🎯 Menos Errores</h3>
+                <p>La IA ayuda a mejorar la precisión en los procesos.</p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>📊 Mejor Análisis</h3>
+                <p>Permite tomar decisiones basadas en datos.</p>
+            </div>
+    </section>
+
+
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+
+        <form class="contacto-box" action="https://formsubmit.co/yordijulca920@gmail.com" method="POST">
+
+            <input type="text" name="nombre" placeholder="Nombre" required>
+
+            <input type="email" name="email" placeholder="Correo Electrónico" required>
+
+            <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+            <p class="correo"></p>
+        </form>
+        <div class="whatsapp-contacto">
+            <h3>¿Prefieres escribirnos por WhatsApp?👀</h3>
+            <p>Contáctanos directamente y responderemos lo antes posible.😊</p>
+
+            <a href="https://wa.me/51907545625" target="_blank" class="btn-whatsapp">
+                📱 Escríbenos por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="redes">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <p>© 2026 AI Future | Todos los derechos reservados</p>
+        <a href="#inicio" class="btn-arriba">↑</a>
+    </footer>
+
+
+</body>
+
+</html>
